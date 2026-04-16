@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blood Donor System - Donor Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Donor Dashboard</h1>
+    <p>Manage profile, donation eligibility, and incoming blood requests.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="login.html">Login</a>
+    <a href="search.html">Find Donor</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="hospital.html">Hospital</a>
+    <a href="contact.html">About</a>
+  </nav>
+
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-box"><h1 id="total-donors-val">0</h1><p>Total Registered Donors</p></div>
+      <div class="stat-box"><h1 id="pending-requests-val">0</h1><p>Pending Patient Requests</p></div>
+      <div class="stat-box"><h1 id="matched-blood-val">0</h1><p>Matching Your Blood Group</p></div>
+    </div>
+
+    <section class="panel-block" style="margin-top:16px;">
+      <h3>Update Profile</h3>
+      <p class="page-subtext">Update contact details and donation dates to keep eligibility status accurate.</p>
+      <form id="donor-profile-form">
+        <div class="form-group"><label for="profile-phone">Phone Number</label><input type="tel" id="profile-phone" placeholder="9876543210" required /></div>
+        <div class="form-group"><label for="profile-address">Address</label><input type="text" id="profile-address" placeholder="Street, Area, Landmark" required /></div>
+<div class="form-group"><label for="profile-last-donation">Last Donation Date</label><input type="date" id="profile-last-donation" required /></div>
+        <button type="button" class="btn" onclick="updateDonorProfile()">Update Profile</button>
+      </form>
+
+      <div id="donor-eligibility-status" class="eligibility-box not-eligible" style="margin-top:12px;">
+        Loading eligibility status...
+      </div>
+      <div class="eligibility-grid" style="margin-top:8px;">
+        <div><strong>Age:</strong> <span id="profile-age">-</span></div>
+        <div><strong>Next Eligible Date:</strong> <span id="profile-next-eligible">-</span></div>
+        <div><strong>Days Remaining:</strong> <span id="profile-days-remaining">-</span></div>
+      </div>
+    </section>
+
+    <section class="panel-block" style="margin-top:16px;">
+      <h3>Received Requests</h3>
+      <p class="page-subtext">Accept to start live location sharing. Reject to decline the request.</p>
+      <div id="donor-requests-loading" class="muted">Loading requests...</div>
+      <div id="donor-received-requests" class="request-grid"></div>
+    </section>
+
+    <h3>Blood Group Stats</h3>
+    <ul id="bg-stats-list"><li>No data available</li></ul>
+
+    <hr />
+
+    <h3>Saved (Favorite) Donors</h3>
+    <ul id="favorites-list"><li>No favorites saved yet.</li></ul>
+
+    <hr />
+
+    <h3>Live Chat: Patient and Donor</h3>
+    <p class="page-subtext">Select a pending request and reply instantly to coordinate donation.</p>
+
+    <div class="form-group">
+      <label for="donor-request-select">Pending Requests</label>
+      <select id="donor-request-select" onchange="loadDonorChatMessages()">
+        <option value="">Select an emergency request</option>
+      </select>
+    </div>
+
+    <div class="chat-panel" id="donor-live-chat-box">
+      <div class="chat-feed" id="donor-chat-feed">
+        <p class="muted">No request selected.</p>
+      </div>
+      <div class="chat-compose">
+        <input type="text" id="donor-chat-input" placeholder="Type a message to patient/hospital..." />
+        <button class="btn-small" onclick="sendDonorLiveMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <footer><p>&copy; 2026 Blood Donor System - College Project</p></footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+

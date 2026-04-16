@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Hospital Login</h1>
+    <p>Login with registered hospital details to open Hospital Dashboard.</p>
+  </header>
+
+  <nav>
+    <a href="signup.html">Donor Sign Up</a>
+    <a href="login.html">Donor Login</a>
+    <a href="hospital-signup.html">Hospital Sign Up</a>
+    <a href="hospital-login.html">Hospital Login</a>
+  </nav>
+
+  <div class="container">
+    <h2>Hospital Access</h2>
+    <p class="page-subtext">Use hospital name, location and password.</p>
+
+    <form id="hospital-login-form">
+      <div class="form-group">
+        <label for="hospital-login-name">Hospital Name</label>
+        <input type="text" id="hospital-login-name" placeholder="Sunrise Hospital" required />
+      </div>
+
+      <div class="form-group">
+        <label for="hospital-login-location">Location</label>
+        <input type="text" id="hospital-login-location" placeholder="Hyderabad" required />
+      </div>
+
+      <div class="form-group">
+        <label for="hospital-login-password">Password</label>
+        <input type="password" id="hospital-login-password" placeholder="Password" required />
+      </div>
+
+      <button type="button" class="btn" onclick="hospitalLogin()">Hospital Login</button>
+    </form>
+
+    <div class="stats" style="margin-top:16px;">
+      <p>New hospital? <a href="hospital-signup.html">Create Hospital Account</a></p>
+    </div>
+  </div>
+
+  <footer><p>&copy; 2026 Blood Donor System - College Project</p></footer>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+

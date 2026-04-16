@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blood Donor System - Hospital Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Hospital Dashboard</h1>
+    <p>Create blood requests, monitor donor responses, and track accepted donors live.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="login.html">Login</a>
+    <a href="search.html">Find Donor</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="hospital.html">Hospital</a>
+    <a href="contact.html">About</a>
+  </nav>
+
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-box"><h1 id="hospital-total-donors">0</h1><p>Total Donors</p></div>
+      <div class="stat-box"><h1 id="hospital-available-donors">0</h1><p>Available Donors</p></div>
+      <div class="stat-box"><h1 id="hospital-pending-requests">0</h1><p>Pending Requests</p></div>
+      <div class="stat-box"><h1 id="hospital-high-urgency">0</h1><p>High Urgency Cases</p></div>
+    </div>
+
+    <div class="hospital-grid">
+      <section class="panel-block">
+        <h3>Request Blood</h3>
+        <div class="form-group"><label for="hospital-blood-group">Blood Group</label>
+          <select id="hospital-blood-group">
+            <option value="">Select Blood Group</option>
+            <option value="A+">A+</option><option value="A-">A-</option>
+            <option value="B+">B+</option><option value="B-">B-</option>
+            <option value="O+">O+</option><option value="O-">O-</option>
+            <option value="AB+">AB+</option><option value="AB-">AB-</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="hospital-request-location">Hospital Location</label><input type="text" id="hospital-request-location" placeholder="Hospital / city" /></div>
+        <div class="form-group"><label for="hospital-urgency">Urgency</label>
+          <select id="hospital-urgency">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <div class="action-buttons">
+          <button class="btn-small" onclick="captureHospitalLocation()">Use Current Location</button>
+          <button class="btn" onclick="requestBloodNow()">Request Blood</button>
+        </div>
+        <p id="hospital-location-status" class="muted" style="margin-top:8px;">Location not captured yet.</p>
+      </section>
+
+      <section class="panel-block">
+        <h3>Availability and Requests Charts</h3>
+        <div class="chart-wrap">
+          <canvas id="availability-chart" width="640" height="220"></canvas>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="location-chart" width="640" height="220"></canvas>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel-block">
+      <h3>Active Blood Requests</h3>
+      <div id="hospital-active-requests" class="request-grid"></div>
+    </section>
+
+    <section class="panel-block">
+      <h3>Live Donor Tracking</h3>
+      <div class="form-group">
+        <label for="hospital-track-request-select">Track Request</label>
+        <select id="hospital-track-request-select" onchange="loadHospitalTracking()">
+          <option value="">Select request to track</option>
+        </select>
+      </div>
+      <div id="hospital-tracking-loading" class="muted">Loading tracking feed...</div>
+      <div class="tracking-grid">
+        <div id="hospital-live-map" class="live-map">Map will appear after donor accepts and location updates.</div>
+        <div id="tracking-donor-list" class="tracking-list"></div>
+      </div>
+    </section>
+
+    <section class="panel-block">
+      <h3>Live Request Chat (Patient/Donor/Hospital)</h3>
+      <div class="form-group">
+        <label for="hospital-request-select">Select Legacy Request</label>
+        <select id="hospital-request-select" onchange="loadHospitalChatMessages()">
+          <option value="">Select request to open chat</option>
+        </select>
+      </div>
+      <div class="chat-panel">
+        <div class="chat-feed" id="hospital-chat-feed">
+          <p class="muted">No request selected.</p>
+        </div>
+        <div class="chat-compose chat-compose-triple">
+          <select id="hospital-sender-role">
+            <option value="hospital">Hospital</option>
+            <option value="patient">Patient</option>
+            <option value="donor">Donor</option>
+          </select>
+          <input type="text" id="hospital-sender-name" placeholder="Sender name" />
+          <input type="text" id="hospital-chat-input" placeholder="Type message..." />
+          <button class="btn-small" onclick="sendHospitalLiveMessage()">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-block">
+      <h3>Donor List with Location and Availability</h3>
+      <div class="table-wrap">
+        <table class="data-table" id="hospital-donor-table">
+          <thead>
+            <tr><th>Name</th><th>Blood Group</th><th>Phone</th><th>Location</th><th>Availability</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel-block">
+      <h3>Patient Requests</h3>
+      <div class="table-wrap">
+        <table class="data-table" id="hospital-request-table">
+          <thead>
+            <tr><th>ID</th><th>Patient</th><th>Blood</th><th>Urgency</th><th>Location</th><th>Status</th><th>Messages</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <footer><p>&copy; 2026 Blood Donor System - College Project</p></footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+

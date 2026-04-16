@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blood Donor Availability System - Search</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Find Available Donors</h1>
+    <p>Smart matching by blood group and location.</p>
+    <div class="toggles"><button class="btn-small" onclick="toggleDarkMode()">Dark Mode</button></div>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="login.html">Login</a>
+    <a href="search.html">Find Donor</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="hospital.html">Hospital</a>
+    <a href="contact.html">About</a>
+  </nav>
+
+  <div class="container">
+    <h2>Search Donors</h2>
+    <p>Only currently available donors are shown.</p>
+    <br />
+
+    <div class="form-group">
+      <label for="search-blood-group">Blood Group</label>
+      <select id="search-blood-group" onchange="findDonors()">
+        <option value="">Any Blood Group</option>
+        <option value="A+">A+</option><option value="A-">A-</option>
+        <option value="B+">B+</option><option value="B-">B-</option>
+        <option value="O+">O+</option><option value="O-">O-</option>
+        <option value="AB+">AB+</option><option value="AB-">AB-</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="search-location">City Name</label>
+      <input type="text" id="search-location" placeholder="Type city..." onkeyup="findDonors()" />
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn" onclick="findDonors()">Search</button>
+      <button class="btn" style="background:linear-gradient(180deg,#ff7b7b,#ff4d4d);border-color:#ff4d4d;color:#fff;" onclick="clearAllData()">Wipe All Data</button>
+    </div>
+
+    <hr />
+
+    <div id="results-container">
+      <p class="no-results">Results will appear here...</p>
+    </div>
+
+    <div class="stats" style="text-align:center; margin-top:14px;">
+      <p><strong>Total Donors in Database:</strong> <span id="donor-count-search">0</span></p>
+    </div>
+  </div>
+
+  <footer><p>&copy; 2026 Blood Donor System - College Project</p></footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => { findDonors(); });</script>
+</body>
+</html>
+
+
+
+
+
