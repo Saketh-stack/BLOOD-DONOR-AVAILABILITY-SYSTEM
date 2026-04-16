@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blood Donor Availability System - Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 id="site-title">Blood Donor Availability System</h1>
+    <p>Donate blood. Share hope. Save lives.</p>
+    <div class="toggles">
+      <button class="btn-small" onclick="toggleDarkMode()">Dark Mode</button>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="login.html">Login</a>
+    <a href="search.html">Find Donor</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="hospital.html">Hospital</a>
+    <a href="contact.html">About</a>
+  </nav>
+
+  <div class="container">
+    <div class="hero" style="text-align:center;">
+      <h2 id="welcome-msg">One Drop. One Life.</h2>
+      <p class="page-subtext">Every blood request is urgent. Your quick response can become someone’s second chance.</p>
+    </div>
+
+    <div class="impact-grid">
+      <div class="impact-card"><h4 id="total-donors-val-home">--</h4><p>Registered Donors</p></div>
+      <div class="impact-card"><h4>24/7</h4><p>Emergency Reachability</p></div>
+      <div class="impact-card"><h4>90 Days</h4><p>Recommended Donation Gap</p></div>
+      <div class="impact-card"><h4>100%</h4><p>Community Powered</p></div>
+    </div>
+
+    <div class="quote-section">
+<div class="quote-grid">
+        <div class="quote-card">
+          <p>“To the world, you may be one person. To one person, you may be the world.”</p>
+          <span>- Anonymous</span>
+        </div>
+        <div class="quote-card">
+          <p>“A bottle of blood can save a life. A donation of blood can save many.”</p>
+          <span>- Blood Donor Awareness</span>
+        </div>
+        <div class="quote-card">
+          <p>“Your little effort can give others a second chance to live.”</p>
+          <span>- Health Volunteers</span>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="stats" style="text-align:center;">
+      <p id="donor-count">Loading Database Status...</p>
+    </div>
+  </div>
+
+  <div id="chatbot-container">
+    <div id="chatbot-window">
+      <div class="chat-header">Donor Assistant</div>
+      <div class="chat-body" id="chat-body">
+        <p>Hello! Ask me anything about blood donation.</p>
+      </div>
+      <div class="chat-footer">
+        <input type="text" id="chat-input" placeholder="Ask anything about blood donation..." />
+        <button id="chat-send" onclick="sendChatMessage()">Send</button>
+      </div>
+    </div>
+    <div id="chatbot-btn" onclick="toggleChatbot()">Chat</div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Blood Donor College Project - SAKETH</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      updateHomeStats();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+

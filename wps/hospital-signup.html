@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Hospital Registration</h1>
+    <p>Register your hospital to access the Hospital Dashboard.</p>
+  </header>
+
+  <nav>
+    <a href="signup.html">Donor Sign Up</a>
+    <a href="login.html">Donor Login</a>
+    <a href="hospital-signup.html">Hospital Sign Up</a>
+    <a href="hospital-login.html">Hospital Login</a>
+  </nav>
+
+  <div class="container">
+    <h2>Create Hospital Account</h2>
+    <p class="page-subtext">Enter hospital name, location and password.</p>
+
+    <form id="hospital-signup-form">
+      <div class="form-group">
+        <label for="hospital-name">Hospital Name</label>
+        <input type="text" id="hospital-name" placeholder="Sunrise Hospital" required />
+      </div>
+
+      <div class="form-group">
+        <label for="hospital-location">Location</label>
+        <input type="text" id="hospital-location" placeholder="Hyderabad" required />
+      </div>
+
+      <div class="form-group">
+        <label for="hospital-password">Password</label>
+        <input type="password" id="hospital-password" placeholder="Minimum 6 characters" required />
+      </div>
+
+      <button type="button" class="btn" onclick="hospitalRegister()">Register Hospital</button>
+    </form>
+
+    <div class="stats" style="margin-top:16px;">
+      <p>Already registered? <a href="hospital-login.html">Hospital Login</a></p>
+    </div>
+  </div>
+
+  <footer><p>&copy; 2026 Blood Donor System - College Project</p></footer>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
